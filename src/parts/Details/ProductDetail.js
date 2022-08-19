@@ -1,18 +1,18 @@
 import { useGlobalContext } from "helpers/hooks/useGlobalContext";
 import parse from "html-react-parser";
 import { useState } from "react";
+import "helpers/format/currency";
 
 export default function ProductDetail({ dataProject }) {
   const [slider, setSlider] = useState(() => dataProject?.imgUrls?.[0] || "");
-  const { state, dispatch } = useGlobalContext();
+  const { dispatch } = useGlobalContext();
 
-  console.log(state, dispatch);
   return (
     <section className="container mx-auto">
       <div className="flex flex-wrap my-4 md:my-12">
         <div className="w-full md:hidden px-4">
           <h2 className="text-5xl font-semibold">{dataProject.title}</h2>
-          <span className="text-xl">IDR {dataProject.price}</span>
+          <span className="text-xl">{dataProject.price.currency()}</span>
         </div>
         <div className="flex-1">
           <div className="slider">
@@ -51,7 +51,7 @@ export default function ProductDetail({ dataProject }) {
         </div>
         <div className="flex-1 px-4 md:p-6">
           <h2 className="text-5xl font-semibold">{dataProject.title}</h2>
-          <p className="text-xl">IDR {dataProject.price}</p>
+          <p className="text-xl">{dataProject.price.currency()}</p>
 
           <button
             onClick={() =>

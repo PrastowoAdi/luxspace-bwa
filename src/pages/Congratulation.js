@@ -1,4 +1,5 @@
 import Breadcrumb from "components/Breadcrumb";
+import Document from "parts/Document";
 import Footer from "parts/Footer";
 import Header from "parts/Header";
 import SiteMap from "parts/SiteMap";
@@ -6,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function Congratulation() {
   return (
-    <>
+    <Document>
       <Header theme="black" />
       <Breadcrumb
         list={[
@@ -41,6 +42,6 @@ export default function Congratulation() {
       </section>
       <SiteMap />
       <Footer />
-    </>
+    </Document>
   );
 }
